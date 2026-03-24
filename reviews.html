@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="slate">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reviews — ZebWorks</title>
+<meta name="description" content="Client reviews and feedback for Shahzeb Raza — ZebWorks Web Developer.">
+<link rel="icon" href="assets/favicon.ico">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+.page-hero { padding: 9rem 0 5rem; position: relative; overflow: hidden; }
+.page-hero-bg {
+  position: absolute; top: -40%; right: -10%;
+  width: 50vw; height: 50vw; border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--accent-rgb),0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+/* Rating overview */
+.rating-overview {
+  display: flex; align-items: center; gap: 3rem;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 2.5rem;
+  margin-bottom: 3rem; flex-wrap: wrap;
+}
+.rating-big {
+  text-align: center; flex-shrink: 0;
+}
+.rating-number {
+  font-family: var(--font-head); font-size: 5rem; font-weight: 800;
+  line-height: 1; color: var(--accent); letter-spacing: -0.04em;
+}
+.rating-stars { font-size: 1.4rem; color: var(--star); margin: 0.4rem 0; }
+.rating-label { font-size: 0.8rem; color: var(--muted); }
+.rating-bars { flex: 1; min-width: 200px; }
+.rating-bar-row {
+  display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; font-size: 0.82rem;
+}
+.rating-bar-label { width: 20px; color: var(--text2); text-align: right; flex-shrink: 0; }
+.rating-bar-track {
+  flex: 1; height: 6px; border-radius: 99px; background: var(--bg2); overflow: hidden;
+}
+.rating-bar-fill { height: 100%; border-radius: 99px; background: var(--star); transition: width 1s ease; }
+.rating-bar-count { color: var(--muted); width: 20px; flex-shrink: 0; }
+
+/* Leave review CTA */
+.leave-review-card {
+  background: linear-gradient(135deg, rgba(var(--accent-rgb),0.08), rgba(var(--accent-rgb),0.03));
+  border: 1px solid rgba(var(--accent-rgb),0.15);
+  border-radius: var(--radius-lg); padding: 2.5rem;
+  text-align: center; margin-top: 3rem;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">Zeb<span>Works</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="reviews.html" class="active">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-socials">
+        <a href="#" class="nav-social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="nav-social-link" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="#" class="nav-social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="nav-social-link" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      </div>
+      <div class="theme-wrap">
+        <button class="theme-btn" id="themeBtn">🎨</button>
+        <div class="theme-panel" id="themePanel">
+          <div class="theme-panel-title">Choose Theme</div>
+          <div class="theme-swatches">
+            <div class="swatch" data-t="slate"></div>
+            <div class="swatch" data-t="neon-purple"></div>
+            <div class="swatch" data-t="cyber-green"></div>
+            <div class="swatch" data-t="solar-gold"></div>
+            <div class="swatch" data-t="rose-noir"></div>
+          </div>
+          <div class="custom-color-section">
+            <span class="custom-color-label">Custom Accent Color</span>
+            <div class="color-inputs">
+              <input type="color" class="color-picker" id="accentPicker" value="#1a1a18">
+              <span class="color-picker-label">Pick your color</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="order.html" class="btn-hire">Hire Me <i class="fas fa-arrow-right"></i></a>
+      <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="projects.html">Projects</a>
+  <a href="reviews.html">Reviews</a>
+  <a href="contact.html">Contact</a>
+  <a href="order.html">Hire Me →</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero page-wrap">
+  <div class="page-hero-bg"></div>
+  <div class="container">
+    <div class="section-label">Social Proof</div>
+    <h1 class="heading-xl" style="max-width:600px;">What clients will <span style="color:var(--accent)">say about me.</span></h1>
+    <p style="margin-top:1rem;font-size:1rem;max-width:480px;">Reviews will be added as I work with clients. Got feedback? I'd love to hear from you.</p>
+  </div>
+</section>
+
+<!-- RATING OVERVIEW -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+
+    <div class="rating-overview reveal">
+      <div class="rating-big">
+        <div class="rating-number"><span class="placeholder">0.0</span></div>
+        <div class="rating-stars">☆☆☆☆☆</div>
+        <div class="rating-label">No reviews yet</div>
+      </div>
+      <div class="rating-bars">
+        <div class="rating-bar-row">
+          <span class="rating-bar-label">5</span>
+          <div class="rating-bar-track"><div class="rating-bar-fill" style="width:0%"></div></div>
+          <span class="rating-bar-count">0</span>
+        </div>
+        <div class="rating-bar-row">
+          <span class="rating-bar-label">4</span>
+          <div class="rating-bar-track"><div class="rating-bar-fill" style="width:0%"></div></div>
+          <span class="rating-bar-count">0</span>
+        </div>
+        <div class="rating-bar-row">
+          <span class="rating-bar-label">3</span>
+          <div class="rating-bar-track"><div class="rating-bar-fill" style="width:0%"></div></div>
+          <span class="rating-bar-count">0</span>
+        </div>
+        <div class="rating-bar-row">
+          <span class="rating-bar-label">2</span>
+          <div class="rating-bar-track"><div class="rating-bar-fill" style="width:0%"></div></div>
+          <span class="rating-bar-count">0</span>
+        </div>
+        <div class="rating-bar-row">
+          <span class="rating-bar-label">1</span>
+          <div class="rating-bar-track"><div class="rating-bar-fill" style="width:0%"></div></div>
+          <span class="rating-bar-count">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review Cards Grid -->
+    <div class="grid-3">
+
+      <!-- ⚠️ REVIEW CARD TEMPLATE — copy & fill in when you get reviews -->
+      <div class="review-card reveal">
+        <div class="review-header">
+          <div class="review-avatar">
+            <!-- Replace with: <img src="client-photo.jpg" alt="Client"> -->
+            <span class="placeholder" style="font-style:normal;">AB</span>
+          </div>
+          <div>
+            <div class="review-name"><span class="placeholder">[ Client Name ]</span></div>
+            <div class="review-role"><span class="placeholder">[ Role / Business ]</span></div>
+          </div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <p class="review-text" style="margin-top:0.75rem;">
+          <span class="placeholder">[ Client feedback — what they loved about working with you, what results they got, would they recommend you? ]</span>
+        </p>
+        <div class="review-footer">
+          <div class="review-date"><span class="placeholder">[ Month Year ]</span></div>
+          <span class="tag"><span class="placeholder">[ Service ]</span></span>
+        </div>
+      </div>
+
+      <div class="review-card reveal reveal-d2">
+        <div class="review-header">
+          <div class="review-avatar"><span class="placeholder" style="font-style:normal;">CD</span></div>
+          <div>
+            <div class="review-name"><span class="placeholder">[ Client Name ]</span></div>
+            <div class="review-role"><span class="placeholder">[ Role / Business ]</span></div>
+          </div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <p class="review-text" style="margin-top:0.75rem;">
+          <span class="placeholder">[ Client review text ]</span>
+        </p>
+        <div class="review-footer">
+          <div class="review-date"><span class="placeholder">[ Month Year ]</span></div>
+          <span class="tag"><span class="placeholder">[ Service ]</span></span>
+        </div>
+      </div>
+
+      <div class="review-card reveal reveal-d3">
+        <div class="review-header">
+          <div class="review-avatar"><span class="placeholder" style="font-style:normal;">EF</span></div>
+          <div>
+            <div class="review-name"><span class="placeholder">[ Client Name ]</span></div>
+            <div class="review-role"><span class="placeholder">[ Role / Business ]</span></div>
+          </div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <p class="review-text" style="margin-top:0.75rem;">
+          <span class="placeholder">[ Client review text ]</span>
+        </p>
+        <div class="review-footer">
+          <div class="review-date"><span class="placeholder">[ Month Year ]</span></div>
+          <span class="tag"><span class="placeholder">[ Service ]</span></span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Leave a review CTA -->
+    <div class="leave-review-card reveal">
+      <div style="font-size:2rem;margin-bottom:0.75rem;">⭐</div>
+      <h3 class="heading-md" style="margin-bottom:0.5rem;">Worked with me?</h3>
+      <p style="font-size:0.9rem;margin-bottom:1.5rem;">I'd love to hear your feedback. Drop me a message and I'll add your review.</p>
+      <a href="contact.html" class="btn btn-primary">Leave a Review <span class="arrow">→</span></a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Zeb<span>Works</span></div>
+        <p class="footer-desc">From Idea to Internet — I Handle It All.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="footer-social" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="#" class="footer-social" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="footer-social" target="_blank"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" class="footer-social" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="https://wa.me/[YOUR_WHATSAPP]" class="footer-social" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Pages</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Work</div>
+        <ul class="footer-links">
+          <li><a href="order.html">Hire Me</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:[YOUR_EMAIL]">[ Your Email ]</a></li>
+          <li><a href="https://wa.me/[YOUR_WHATSAPP]" target="_blank">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 ZebWorks · Shahzeb Raza · All rights reserved.</p>
+      <p class="footer-copy">Built with ❤️ and clean code.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/theme.js"></script>
+</body>
+</html>

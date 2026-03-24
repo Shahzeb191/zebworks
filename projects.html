@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="slate">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — ZebWorks</title>
+<meta name="description" content="Portfolio and client work by Shahzeb Raza — Web Developer.">
+<link rel="icon" href="assets/favicon.ico">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+.page-hero { padding: 9rem 0 5rem; position: relative; overflow: hidden; }
+.page-hero-bg {
+  position: absolute; top: -40%; right: -10%;
+  width: 50vw; height: 50vw; border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--accent-rgb),0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.filter-bar {
+  display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+}
+.filter-btn {
+  padding: 0.45rem 1rem; border-radius: 99px; font-size: 0.82rem; font-weight: 500;
+  border: 1px solid var(--border); background: var(--card); color: var(--text2);
+  cursor: pointer; transition: all var(--transition);
+}
+.filter-btn:hover, .filter-btn.active {
+  border-color: var(--accent); color: var(--accent); background: var(--tag-bg);
+}
+.projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+
+/* Add Project CTA card */
+.add-project-card {
+  border: 2px dashed rgba(var(--accent-rgb),0.25);
+  border-radius: var(--radius-lg);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 0.75rem;
+  min-height: 320px; cursor: pointer;
+  transition: all var(--transition); text-decoration: none;
+  color: var(--muted); text-align: center; padding: 2rem;
+  background: repeating-linear-gradient(
+    -45deg, rgba(var(--accent-rgb),0.02), rgba(var(--accent-rgb),0.02) 4px,
+    transparent 4px, transparent 14px);
+}
+.add-project-card:hover {
+  border-color: var(--accent); color: var(--accent);
+  background: rgba(var(--accent-rgb),0.04);
+}
+.add-project-icon { font-size: 2rem; }
+.add-project-label { font-family: var(--font-head); font-size: 0.95rem; font-weight: 700; }
+.add-project-sub { font-size: 0.82rem; }
+
+@media(max-width:1024px){ .projects-grid { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:600px){ .projects-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">Zeb<span>Works</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-socials">
+        <a href="#" class="nav-social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="nav-social-link" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="#" class="nav-social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="nav-social-link" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      </div>
+      <div class="theme-wrap">
+        <button class="theme-btn" id="themeBtn">🎨</button>
+        <div class="theme-panel" id="themePanel">
+          <div class="theme-panel-title">Choose Theme</div>
+          <div class="theme-swatches">
+            <div class="swatch" data-t="slate"></div>
+            <div class="swatch" data-t="neon-purple"></div>
+            <div class="swatch" data-t="cyber-green"></div>
+            <div class="swatch" data-t="solar-gold"></div>
+            <div class="swatch" data-t="rose-noir"></div>
+          </div>
+          <div class="custom-color-section">
+            <span class="custom-color-label">Custom Accent Color</span>
+            <div class="color-inputs">
+              <input type="color" class="color-picker" id="accentPicker" value="#1a1a18">
+              <span class="color-picker-label">Pick your color</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="order.html" class="btn-hire">Hire Me <i class="fas fa-arrow-right"></i></a>
+      <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="projects.html">Projects</a>
+  <a href="reviews.html">Reviews</a>
+  <a href="contact.html">Contact</a>
+  <a href="order.html">Hire Me →</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero page-wrap">
+  <div class="page-hero-bg"></div>
+  <div class="container">
+    <div class="section-label">Portfolio</div>
+    <h1 class="heading-xl" style="max-width:600px;">Work in progress — <span style="color:var(--accent)">watch this space.</span></h1>
+    <p style="margin-top:1rem;font-size:1rem;max-width:500px;">Projects are coming soon. In the meantime, feel free to reach out and let's create something together.</p>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+
+    <div class="filter-bar reveal">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Frontend</button>
+      <button class="filter-btn">Landing Pages</button>
+      <button class="filter-btn">Full Stack</button>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- Placeholder Project Cards — replace with real ones -->
+
+      <!-- ⚠️ PROJECT CARD TEMPLATE — copy & paste, fill in your details -->
+      <div class="project-card reveal">
+        <div class="project-thumb">
+          <div class="project-thumb-placeholder">
+            <i class="fas fa-image" style="font-size:2rem;"></i>
+            <span>[ Add Screenshot ]</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <div style="display:flex;gap:0.5rem;margin-bottom:0.75rem;flex-wrap:wrap;">
+            <span class="tag">Frontend</span>
+            <span class="tag tag-coming-soon">Coming Soon</span>
+          </div>
+          <div class="project-title"><span class="placeholder">[ Project Name ]</span></div>
+          <p class="project-desc"><span class="placeholder">[ Short description of the project — what it does, who it's for, what problem it solves. 1-2 sentences. ]</span></p>
+          <div class="project-footer">
+            <div style="display:flex;gap:0.4rem;flex-wrap:wrap;">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JS</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">Live →</a>
+              <a href="#" class="project-link">Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal reveal-d2">
+        <div class="project-thumb">
+          <div class="project-thumb-placeholder">
+            <i class="fas fa-image" style="font-size:2rem;"></i>
+            <span>[ Add Screenshot ]</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <div style="display:flex;gap:0.5rem;margin-bottom:0.75rem;flex-wrap:wrap;">
+            <span class="tag">Landing Page</span>
+            <span class="tag tag-coming-soon">Coming Soon</span>
+          </div>
+          <div class="project-title"><span class="placeholder">[ Project Name ]</span></div>
+          <p class="project-desc"><span class="placeholder">[ Short description of the project. ]</span></p>
+          <div class="project-footer">
+            <div style="display:flex;gap:0.4rem;flex-wrap:wrap;">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">Live →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal reveal-d3">
+        <div class="project-thumb">
+          <div class="project-thumb-placeholder">
+            <i class="fas fa-image" style="font-size:2rem;"></i>
+            <span>[ Add Screenshot ]</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <div style="display:flex;gap:0.5rem;margin-bottom:0.75rem;flex-wrap:wrap;">
+            <span class="tag">Custom</span>
+            <span class="tag tag-coming-soon">Coming Soon</span>
+          </div>
+          <div class="project-title"><span class="placeholder">[ Project Name ]</span></div>
+          <p class="project-desc"><span class="placeholder">[ Short description. ]</span></p>
+          <div class="project-footer">
+            <div style="display:flex;gap:0.4rem;flex-wrap:wrap;">
+              <span class="tag">JS</span>
+              <span class="tag">CSS</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">Live →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Project CTA -->
+      <a href="contact.html" class="add-project-card reveal reveal-d4">
+        <div class="add-project-icon">+</div>
+        <div class="add-project-label">Your Project Here</div>
+        <div class="add-project-sub">Let's build something together</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CLIENT WORK -->
+<section class="section">
+  <div class="container">
+    <div class="section-label reveal">Client Work</div>
+    <h2 class="heading-lg reveal reveal-d1" style="margin-bottom:2.5rem;">
+      Work done for <span style="color:var(--accent)">real clients.</span>
+    </h2>
+
+    <div class="grid-2">
+
+      <!-- Client Work Card Template -->
+      <div class="card reveal">
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;">
+          <div class="placeholder-block" style="width:60px;height:60px;min-height:unset;border-radius:12px;flex-shrink:0;font-size:0.75rem;">Logo</div>
+          <div>
+            <div style="font-family:var(--font-head);font-weight:700;margin-bottom:0.25rem;"><span class="placeholder">[ Client Name ]</span></div>
+            <div style="font-size:0.8rem;color:var(--muted);"><span class="placeholder">[ Industry ]</span></div>
+          </div>
+        </div>
+        <p style="font-size:0.9rem;line-height:1.7;"><span class="placeholder">[ Describe what you built for this client, what problem it solved, and what the outcome was. ]</span></p>
+        <div style="margin-top:1rem;display:flex;gap:0.5rem;flex-wrap:wrap;">
+          <span class="tag"><span class="placeholder">[ Tech Used ]</span></span>
+        </div>
+      </div>
+
+      <div class="card reveal reveal-d2">
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;">
+          <div class="placeholder-block" style="width:60px;height:60px;min-height:unset;border-radius:12px;flex-shrink:0;font-size:0.75rem;">Logo</div>
+          <div>
+            <div style="font-family:var(--font-head);font-weight:700;margin-bottom:0.25rem;"><span class="placeholder">[ Client Name ]</span></div>
+            <div style="font-size:0.8rem;color:var(--muted);"><span class="placeholder">[ Industry ]</span></div>
+          </div>
+        </div>
+        <p style="font-size:0.9rem;line-height:1.7;"><span class="placeholder">[ Describe the project and result. ]</span></p>
+        <div style="margin-top:1rem;display:flex;gap:0.5rem;">
+          <span class="tag"><span class="placeholder">[ Tech Used ]</span></span>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+      <a href="order.html" class="btn btn-primary">Start a Project <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Zeb<span>Works</span></div>
+        <p class="footer-desc">From Idea to Internet — I Handle It All.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="footer-social" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="#" class="footer-social" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="footer-social" target="_blank"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" class="footer-social" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="https://wa.me/[YOUR_WHATSAPP]" class="footer-social" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Pages</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Work</div>
+        <ul class="footer-links">
+          <li><a href="order.html">Hire Me</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:[YOUR_EMAIL]">[ Your Email ]</a></li>
+          <li><a href="https://wa.me/[YOUR_WHATSAPP]" target="_blank">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 ZebWorks · Shahzeb Raza · All rights reserved.</p>
+      <p class="footer-copy">Built with ❤️ and clean code.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/theme.js"></script>
+<script>
+// Filter buttons
+document.querySelectorAll('.filter-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
