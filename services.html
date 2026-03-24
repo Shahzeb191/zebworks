@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="slate">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — ZebWorks</title>
+<meta name="description" content="Web development services by Shahzeb Raza — Frontend, Full Stack, Landing Pages, and AI Automation (coming soon).">
+<link rel="icon" href="assets/favicon.ico">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+.page-hero {
+  padding: 9rem 0 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero-bg {
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--accent-rgb),0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 0;
+  position: relative;
+}
+.process-grid::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), var(--accent), var(--border), transparent);
+}
+.process-step {
+  text-align: center;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+.process-num {
+  width: 56px; height: 56px;
+  border-radius: 99px;
+  background: var(--card);
+  border: 2px solid rgba(var(--accent-rgb),0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head);
+  font-size: 1rem; font-weight: 800;
+  color: var(--accent);
+  margin: 0 auto 1.25rem;
+}
+.process-title { font-family: var(--font-head); font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; }
+.process-desc { font-size: 0.82rem; color: var(--muted); }
+
+/* What's included table */
+.include-table { width: 100%; border-collapse: collapse; }
+.include-table th {
+  font-family: var(--font-head); font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); padding: 0.75rem 1rem;
+  text-align: left; border-bottom: 1px solid var(--border);
+}
+.include-table td {
+  padding: 0.85rem 1rem; font-size: 0.88rem;
+  border-bottom: 1px solid var(--border); color: var(--text2);
+}
+.include-table tr:last-child td { border: none; }
+.include-table tr:hover td { background: rgba(var(--accent-rgb),0.03); }
+.check { color: var(--accent); }
+.cross { color: var(--muted); }
+
+@media(max-width:768px) {
+  .process-grid { grid-template-columns: repeat(2,1fr); gap: 2rem; }
+  .process-grid::before { display: none; }
+}
+@media(max-width:480px) {
+  .process-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR (same across all pages) -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">Zeb<span>Works</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-socials">
+        <a href="#" class="nav-social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="nav-social-link" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="#" class="nav-social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="nav-social-link" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      </div>
+      <div class="theme-wrap">
+        <button class="theme-btn" id="themeBtn">🎨</button>
+        <div class="theme-panel" id="themePanel">
+          <div class="theme-panel-title">Choose Theme</div>
+          <div class="theme-swatches">
+            <div class="swatch" data-t="slate"></div>
+            <div class="swatch" data-t="neon-purple"></div>
+            <div class="swatch" data-t="cyber-green"></div>
+            <div class="swatch" data-t="solar-gold"></div>
+            <div class="swatch" data-t="rose-noir"></div>
+          </div>
+          <div class="custom-color-section">
+            <span class="custom-color-label">Custom Accent Color</span>
+            <div class="color-inputs">
+              <input type="color" class="color-picker" id="accentPicker" value="#1a1a18">
+              <span class="color-picker-label">Pick your color</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="order.html" class="btn-hire">Hire Me <i class="fas fa-arrow-right"></i></a>
+      <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="projects.html">Projects</a>
+  <a href="reviews.html">Reviews</a>
+  <a href="contact.html">Contact</a>
+  <a href="order.html">Hire Me →</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero page-wrap">
+  <div class="page-hero-bg"></div>
+  <div class="container">
+    <div class="section-label">What I Offer</div>
+    <h1 class="heading-xl" style="max-width:600px;">Services built for <span style="color:var(--accent)">real results.</span></h1>
+    <p style="margin-top:1rem;font-size:1rem;max-width:500px;">Clean code. Thoughtful design. Delivered on time. Every project gets my full attention.</p>
+  </div>
+</section>
+
+<!-- SERVICES GRID -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="grid-3">
+
+      <!-- Service 1 -->
+      <div class="service-card reveal">
+        <div class="service-icon">🖥️</div>
+        <div class="service-title">Frontend Development</div>
+        <p class="service-desc">Pixel-perfect, responsive interfaces that look stunning on every device. Fast, accessible, and built to impress.</p>
+        <div class="service-tags">
+          <span class="tag">HTML/CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Responsive</span>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <a href="order.html" class="btn-ghost btn">Get Started <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="service-card reveal reveal-d2">
+        <div class="service-icon">🌐</div>
+        <div class="service-title">Landing Pages</div>
+        <p class="service-desc">High-converting landing pages designed to turn visitors into clients. Built fast, built right.</p>
+        <div class="service-tags">
+          <span class="tag">Conversion Focus</span>
+          <span class="tag">Fast Delivery</span>
+          <span class="tag">SEO Ready</span>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <a href="order.html" class="btn-ghost btn">Get Started <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="service-card reveal reveal-d3">
+        <div class="service-icon">🛠️</div>
+        <div class="service-title">Custom Web Projects</div>
+        <p class="service-desc">Have a unique idea? Let's build it. From portfolios to business sites — custom solutions tailored to you.</p>
+        <div class="service-tags">
+          <span class="tag">Custom</span>
+          <span class="tag">Portfolio</span>
+          <span class="tag">Business Sites</span>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <a href="order.html" class="btn-ghost btn">Get Started <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <!-- Coming Soon: Full Stack -->
+      <div class="service-card coming-soon reveal reveal-d1">
+        <div class="coming-soon-overlay"><span class="tag tag-coming-soon">⚡ Coming Soon</span></div>
+        <div class="service-icon">⚙️</div>
+        <div class="service-title">Full Stack Development</div>
+        <p class="service-desc">Backend, APIs, databases — full-featured web apps from frontend to server. Currently expanding skills.</p>
+        <div class="service-tags">
+          <span class="tag">Node.js</span>
+          <span class="tag">Databases</span>
+          <span class="tag">APIs</span>
+        </div>
+      </div>
+
+      <!-- Coming Soon: AI Automation -->
+      <div class="service-card coming-soon reveal reveal-d2" style="grid-column: span 2;">
+        <div class="coming-soon-overlay"><span class="tag tag-coming-soon">🤖 Coming Soon</span></div>
+        <div style="display:flex;gap:1.5rem;align-items:flex-start;">
+          <div class="service-icon" style="flex-shrink:0;font-size:2rem;width:64px;height:64px;">🤖</div>
+          <div>
+            <div class="service-title" style="font-size:1.2rem;margin-bottom:0.6rem;">AI Automation</div>
+            <p class="service-desc" style="font-size:0.9rem;line-height:1.7;">
+              Automate repetitive tasks, integrate AI into your workflows, and supercharge your business with smart tools. Currently in active development — join the waitlist to be first.
+            </p>
+            <div class="service-tags" style="margin-top:1rem;">
+              <span class="tag">Workflow Automation</span>
+              <span class="tag">AI Integration</span>
+              <span class="tag">ChatBots</span>
+              <span class="tag">Smart Tools</span>
+            </div>
+            <div style="margin-top:1.25rem;">
+              <a href="contact.html" class="btn btn-outline" style="font-size:0.82rem;padding:0.6rem 1.2rem;">Join Waitlist <span class="arrow">→</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROCESS -->
+<section class="section">
+  <div class="container">
+    <div class="section-label reveal">How It Works</div>
+    <h2 class="heading-lg reveal reveal-d1" style="margin-bottom:3rem;">Simple. Transparent. <span style="color:var(--accent)">Fast.</span></h2>
+
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="process-num">01</div>
+        <div class="process-title">Discovery</div>
+        <p class="process-desc">We talk about your idea, goals, and requirements.</p>
+      </div>
+      <div class="process-step reveal reveal-d2">
+        <div class="process-num">02</div>
+        <div class="process-title">Planning</div>
+        <p class="process-desc">I scope the project and give you a clear timeline.</p>
+      </div>
+      <div class="process-step reveal reveal-d3">
+        <div class="process-num">03</div>
+        <div class="process-title">Build</div>
+        <p class="process-desc">I build with updates along the way. No surprises.</p>
+      </div>
+      <div class="process-step reveal reveal-d4">
+        <div class="process-num">04</div>
+        <div class="process-title">Deliver</div>
+        <p class="process-desc">Final delivery + revisions until you're 100% happy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHAT'S INCLUDED -->
+<section class="section">
+  <div class="container">
+    <div class="section-label reveal">What's Always Included</div>
+    <h2 class="heading-lg reveal reveal-d1" style="margin-bottom:2.5rem;">No hidden fees. No surprises.</h2>
+
+    <div class="card reveal" style="overflow:auto;">
+      <table class="include-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Basic</th>
+            <th>Standard</th>
+            <th>Premium</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Mobile Responsive Design</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Clean Code</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>SEO Meta Tags</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Revisions</td><td>1</td><td>3</td><td>Unlimited</td></tr>
+          <tr><td>Delivery Time</td><td>5 days</td><td>10 days</td><td>Custom</td></tr>
+          <tr><td>Pages</td><td>1</td><td>Up to 5</td><td>Unlimited</td></tr>
+          <tr><td>Contact Form</td><td class="cross">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Animations</td><td class="cross">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Post-delivery Support</td><td class="cross">—</td><td>7 days</td><td>30 days</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+      <a href="order.html" class="btn btn-primary">Start Your Project <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Zeb<span>Works</span></div>
+        <p class="footer-desc">From Idea to Internet — I Handle It All.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="footer-social" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="#" class="footer-social" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="footer-social" target="_blank"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" class="footer-social" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="https://wa.me/[YOUR_WHATSAPP]" class="footer-social" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Pages</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Work</div>
+        <ul class="footer-links">
+          <li><a href="order.html">Hire Me</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="order.html">Get a Quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:[YOUR_EMAIL]">[ Your Email ]</a></li>
+          <li><a href="https://wa.me/[YOUR_WHATSAPP]" target="_blank">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 ZebWorks · Shahzeb Raza · All rights reserved.</p>
+      <p class="footer-copy">Built with ❤️ and clean code.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/theme.js"></script>
+</body>
+</html>

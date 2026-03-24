@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="slate">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hire Me — ZebWorks</title>
+<meta name="description" content="Start your web project with Shahzeb Raza — ZebWorks. Choose a service, pick a package, and get started.">
+<link rel="icon" href="assets/favicon.ico">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+.order-page {
+  min-height: 100vh;
+  padding: 9rem 0 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.order-page-bg {
+  position: absolute; top: -30%; left: -10%;
+  width: 50vw; height: 50vw; border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--accent-rgb),0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.order-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 3rem;
+  align-items: start;
+}
+/* Sidebar */
+.order-sidebar {
+  position: sticky;
+  top: 6rem;
+}
+.sidebar-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  margin-bottom: 1rem;
+}
+.sidebar-title {
+  font-family: var(--font-head); font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+.sidebar-why { display: flex; flex-direction: column; gap: 0.85rem; }
+.sidebar-why-item {
+  display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.88rem;
+}
+.sidebar-why-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: var(--tag-bg); display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0; font-size: 0.9rem;
+}
+.sidebar-why-text { color: var(--text2); line-height: 1.5; }
+.sidebar-why-text strong { color: var(--text); display: block; font-weight: 500; font-size: 0.85rem; }
+.wa-btn {
+  display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+  width: 100%; padding: 0.85rem; border-radius: var(--radius);
+  background: #25D366; color: #fff; font-family: var(--font-head);
+  font-weight: 600; font-size: 0.9rem; border: none; cursor: pointer;
+  transition: all var(--transition); text-decoration: none;
+}
+.wa-btn:hover { background: #22c55e; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.3); }
+
+@media(max-width:900px){
+  .order-layout { grid-template-columns: 1fr; }
+  .order-sidebar { position: static; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">Zeb<span>Works</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-socials">
+        <a href="#" class="nav-social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="nav-social-link" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="#" class="nav-social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="nav-social-link" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      </div>
+      <div class="theme-wrap">
+        <button class="theme-btn" id="themeBtn">🎨</button>
+        <div class="theme-panel" id="themePanel">
+          <div class="theme-panel-title">Choose Theme</div>
+          <div class="theme-swatches">
+            <div class="swatch" data-t="slate"></div>
+            <div class="swatch" data-t="neon-purple"></div>
+            <div class="swatch" data-t="cyber-green"></div>
+            <div class="swatch" data-t="solar-gold"></div>
+            <div class="swatch" data-t="rose-noir"></div>
+          </div>
+          <div class="custom-color-section">
+            <span class="custom-color-label">Custom Accent Color</span>
+            <div class="color-inputs">
+              <input type="color" class="color-picker" id="accentPicker" value="#1a1a18">
+              <span class="color-picker-label">Pick your color</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="projects.html">Projects</a>
+  <a href="reviews.html">Reviews</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- ORDER PAGE -->
+<div class="order-page page-wrap">
+  <div class="order-page-bg"></div>
+  <div class="container">
+    <div style="margin-bottom:2.5rem;">
+      <div class="section-label">Let's Work Together</div>
+      <h1 class="heading-xl">Start Your <span style="color:var(--accent)">Project</span></h1>
+    </div>
+
+    <div class="order-layout">
+
+      <!-- MAIN FORM -->
+      <div id="orderForm">
+
+        <!-- Progress Steps -->
+        <div class="order-progress">
+          <div class="order-step active" id="progressStep1">
+            <div class="order-step-num">1</div>
+            <div class="order-step-label">Service</div>
+            <div class="order-step-line"></div>
+          </div>
+          <div class="order-step" id="progressStep2">
+            <div class="order-step-num">2</div>
+            <div class="order-step-label">Package</div>
+            <div class="order-step-line"></div>
+          </div>
+          <div class="order-step" id="progressStep3">
+            <div class="order-step-num">3</div>
+            <div class="order-step-label">Details</div>
+            <div class="order-step-line"></div>
+          </div>
+          <div class="order-step" id="progressStep4">
+            <div class="order-step-num">4</div>
+            <div class="order-step-label">Payment</div>
+            <div class="order-step-line"></div>
+          </div>
+          <div class="order-step" id="progressStep5">
+            <div class="order-step-num">5</div>
+            <div class="order-step-label">Review</div>
+          </div>
+        </div>
+
+        <!-- STEP 1 — Service -->
+        <div class="form-panel active" id="step1">
+          <div class="form-panel-title">What do you need?</div>
+          <div class="form-panel-sub">Choose the service that fits your project.</div>
+          <div class="service-options">
+            <div class="service-option" data-service="Frontend Development">
+              <div class="service-option-icon">🖥️</div>
+              <div class="service-option-name">Frontend Development</div>
+              <div class="service-option-desc">Responsive UI, animations, pixel-perfect design</div>
+            </div>
+            <div class="service-option" data-service="Landing Page">
+              <div class="service-option-icon">🌐</div>
+              <div class="service-option-name">Landing Page</div>
+              <div class="service-option-desc">High-converting single-page site</div>
+            </div>
+            <div class="service-option" data-service="Portfolio / Personal Site">
+              <div class="service-option-icon">👤</div>
+              <div class="service-option-name">Portfolio / Personal Site</div>
+              <div class="service-option-desc">Showcase your work professionally</div>
+            </div>
+            <div class="service-option" data-service="Business Website">
+              <div class="service-option-icon">🏢</div>
+              <div class="service-option-name">Business Website</div>
+              <div class="service-option-desc">Multi-page site for your brand</div>
+            </div>
+            <div class="service-option" data-service="Custom Project">
+              <div class="service-option-icon">⚡</div>
+              <div class="service-option-name">Custom Project</div>
+              <div class="service-option-desc">Have a unique idea? Let's talk</div>
+            </div>
+            <div class="service-option" data-service="Website Redesign">
+              <div class="service-option-icon">🔄</div>
+              <div class="service-option-name">Website Redesign</div>
+              <div class="service-option-desc">Modernize your existing site</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 — Package -->
+        <div class="form-panel" id="step2">
+          <div class="form-panel-title">Choose a Package</div>
+          <div class="form-panel-sub">Pick what fits your budget and needs.</div>
+          <div class="package-options">
+            <div class="package-option" data-pkg="Basic" data-price="[SET_PRICE]">
+              <div class="package-name">Basic</div>
+              <!-- ⚠️ Replace [SET_PRICE] with actual price e.g. 2999 -->
+              <div class="package-price">₹<span class="placeholder">[SET]</span><span>/project</span></div>
+              <ul class="package-features">
+                <li>1 Page</li>
+                <li>Mobile Responsive</li>
+                <li>1 Revision</li>
+                <li>5 Day Delivery</li>
+              </ul>
+            </div>
+            <div class="package-option popular" data-pkg="Standard" data-price="[SET_PRICE]">
+              <div class="package-name">Standard</div>
+              <div class="package-price">₹<span class="placeholder">[SET]</span><span>/project</span></div>
+              <ul class="package-features">
+                <li>Up to 5 Pages</li>
+                <li>Mobile Responsive</li>
+                <li>Animations</li>
+                <li>3 Revisions</li>
+                <li>10 Day Delivery</li>
+                <li>7 Day Support</li>
+              </ul>
+            </div>
+            <div class="package-option" data-pkg="Premium" data-price="[SET_PRICE]">
+              <div class="package-name">Premium</div>
+              <div class="package-price">₹<span class="placeholder">[SET]</span><span>/project</span></div>
+              <ul class="package-features">
+                <li>Unlimited Pages</li>
+                <li>Full Custom Design</li>
+                <li>Animations & Effects</li>
+                <li>Unlimited Revisions</li>
+                <li>Custom Timeline</li>
+                <li>30 Day Support</li>
+              </ul>
+            </div>
+          </div>
+          <p style="font-size:0.82rem;color:var(--muted);">💬 Need a custom quote? Select any package and mention it in the details.</p>
+        </div>
+
+        <!-- STEP 3 — Details -->
+        <div class="form-panel" id="step3">
+          <div class="form-panel-title">Your Details</div>
+          <div class="form-panel-sub">Tell me about you and your project.</div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="clientName">Your Name *</label>
+              <input type="text" class="form-input" id="clientName" placeholder="e.g. Rahul Sharma">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="clientEmail">Email Address *</label>
+              <input type="email" class="form-input" id="clientEmail" placeholder="rahul@example.com">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="clientPhone">Phone / WhatsApp</label>
+              <input type="tel" class="form-input" id="clientPhone" placeholder="+91 XXXXX XXXXX">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="projectName">Project Name</label>
+              <input type="text" class="form-input" id="projectName" placeholder="e.g. My Portfolio Site">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="projectDesc">Project Description *</label>
+            <textarea class="form-textarea" id="projectDesc" placeholder="Tell me what you want to build, who it's for, and any specific features or pages you need..."></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="deadline">Preferred Deadline</label>
+              <input type="date" class="form-input" id="deadline">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="refLinks">Reference Links</label>
+              <input type="text" class="form-input" id="refLinks" placeholder="Sites you like (optional)">
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4 — Payment -->
+        <div class="form-panel" id="step4">
+          <div class="form-panel-title">Payment Method</div>
+          <div class="form-panel-sub">Choose how you'd like to pay. Payment details will be shared after we discuss the project.</div>
+          <div class="payment-options">
+            <div class="payment-option" data-payment="UPI">
+              <div class="payment-icon">📱</div>
+              <div>
+                <div class="payment-name">UPI</div>
+                <div class="payment-sub">GPay, PhonePe, Paytm</div>
+              </div>
+            </div>
+            <div class="payment-option" data-payment="Bank Transfer">
+              <div class="payment-icon">🏦</div>
+              <div>
+                <div class="payment-name">Bank Transfer</div>
+                <div class="payment-sub">NEFT / IMPS / RTGS</div>
+              </div>
+            </div>
+            <div class="payment-option payment-coming-soon" data-payment="PayPal">
+              <div class="payment-icon">🌐</div>
+              <div>
+                <div class="payment-name">PayPal</div>
+                <div class="payment-sub">International — Coming Soon</div>
+              </div>
+            </div>
+            <div class="payment-option payment-coming-soon" data-payment="Wise">
+              <div class="payment-icon">💸</div>
+              <div>
+                <div class="payment-name">Wise</div>
+                <div class="payment-sub">International — Coming Soon</div>
+              </div>
+            </div>
+          </div>
+          <div style="background:rgba(var(--accent-rgb),0.05);border:1px solid rgba(var(--accent-rgb),0.15);border-radius:var(--radius);padding:1rem;font-size:0.85rem;color:var(--text2);">
+            💡 <strong style="color:var(--text);">Advance Payment:</strong> Typically 50% upfront, 50% on delivery. Final terms discussed on WhatsApp.
+          </div>
+        </div>
+
+        <!-- STEP 5 — Summary -->
+        <div class="form-panel" id="step5">
+          <div class="form-panel-title">Review Your Order</div>
+          <div class="form-panel-sub">Everything look good? Hit Submit and I'll get back to you on WhatsApp.</div>
+
+          <div class="order-summary">
+            <div class="summary-row"><span class="label">Service</span><span class="value" id="sum-service">—</span></div>
+            <div class="summary-row"><span class="label">Package</span><span class="value" id="sum-package">—</span></div>
+            <div class="summary-row"><span class="label">Starting Price</span><span class="value" id="sum-price">—</span></div>
+            <div class="summary-row"><span class="label">Your Name</span><span class="value" id="sum-name">—</span></div>
+            <div class="summary-row"><span class="label">Email</span><span class="value" id="sum-email">—</span></div>
+            <div class="summary-row"><span class="label">Deadline</span><span class="value" id="sum-deadline">—</span></div>
+            <div class="summary-row"><span class="label">Payment Method</span><span class="value" id="sum-payment">—</span></div>
+          </div>
+
+          <div style="background:rgba(var(--accent-rgb),0.05);border:1px solid rgba(var(--accent-rgb),0.15);border-radius:var(--radius);padding:1rem;font-size:0.85rem;color:var(--text2);margin-bottom:1rem;">
+            📲 On clicking Submit, you'll be redirected to WhatsApp with all your order details pre-filled. I'll respond within 24 hours.
+          </div>
+        </div>
+
+        <!-- Form Navigation -->
+        <div class="form-nav">
+          <button class="btn btn-outline" id="prevBtn" style="display:none;">← Back</button>
+          <div style="display:flex;gap:1rem;margin-left:auto;">
+            <button class="btn btn-primary" id="nextBtn">Continue →</button>
+            <button class="btn btn-primary" id="submitBtn" style="display:none;background:#25D366;">
+              <i class="fab fa-whatsapp"></i> Submit on WhatsApp
+            </button>
+          </div>
+        </div>
+
+      </div><!-- end orderForm -->
+
+      <!-- SIDEBAR -->
+      <div class="order-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-title">Why Work With Me</div>
+          <div class="sidebar-why">
+            <div class="sidebar-why-item">
+              <div class="sidebar-why-icon">✅</div>
+              <div class="sidebar-why-text">
+                <strong>Clean Code</strong>
+                Well-structured, readable, and maintainable.
+              </div>
+            </div>
+            <div class="sidebar-why-item">
+              <div class="sidebar-why-icon">⚡</div>
+              <div class="sidebar-why-text">
+                <strong>Fast Delivery</strong>
+                Clear timelines. No delays without notice.
+              </div>
+            </div>
+            <div class="sidebar-why-item">
+              <div class="sidebar-why-icon">💬</div>
+              <div class="sidebar-why-text">
+                <strong>Direct Communication</strong>
+                You talk to me, not a middleman.
+              </div>
+            </div>
+            <div class="sidebar-why-item">
+              <div class="sidebar-why-icon">🔄</div>
+              <div class="sidebar-why-text">
+                <strong>Revisions Included</strong>
+                We iterate until you're happy.
+              </div>
+            </div>
+            <div class="sidebar-why-item">
+              <div class="sidebar-why-icon">📱</div>
+              <div class="sidebar-why-text">
+                <strong>Mobile-First</strong>
+                Every site works perfectly on all devices.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-title">Prefer to Chat Directly?</div>
+          <a href="https://wa.me/[YOUR_WHATSAPP]" class="wa-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Message on WhatsApp
+          </a>
+          <p style="font-size:0.78rem;color:var(--muted);text-align:center;margin-top:0.75rem;">Avg. response: within a few hours</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Zeb<span>Works</span></div>
+        <p class="footer-desc">From Idea to Internet — I Handle It All.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="footer-social" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="#" class="footer-social" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="footer-social" target="_blank"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" class="footer-social" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="https://wa.me/[YOUR_WHATSAPP]" class="footer-social" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Pages</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Work</div>
+        <ul class="footer-links">
+          <li><a href="order.html">Hire Me</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:[YOUR_EMAIL]">[ Your Email ]</a></li>
+          <li><a href="https://wa.me/[YOUR_WHATSAPP]" target="_blank">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 ZebWorks · Shahzeb Raza · All rights reserved.</p>
+      <p class="footer-copy">Built with ❤️ and clean code.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/theme.js"></script>
+<script src="js/order.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="slate">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Page Not Found | ZebWorks</title>
+<link rel="icon" href="assets/favicon.ico">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body { display: flex; flex-direction: column; min-height: 100vh; }
+.error-wrap {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 2rem;
+}
+.error-code {
+  font-family: var(--font-head); font-size: clamp(6rem, 20vw, 14rem);
+  font-weight: 800; line-height: 1;
+  color: rgba(var(--accent-rgb),0.1);
+  letter-spacing: -0.06em;
+  margin-bottom: -1.5rem;
+  animation: float-err 4s ease-in-out infinite;
+}
+@keyframes float-err {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.error-title { font-family: var(--font-head); font-size: 2rem; font-weight: 700; margin-bottom: 0.75rem; }
+.error-sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem; }
+.error-links { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">Zeb<span>Works</span></a>
+  </div>
+</nav>
+
+<div class="error-wrap page-wrap">
+  <div>
+    <div class="error-code">404</div>
+    <h1 class="error-title">Page Not Found</h1>
+    <p class="error-sub">Looks like this page doesn't exist — or it moved somewhere.</p>
+    <div class="error-links">
+      <a href="index.html" class="btn btn-primary">Go Home <span class="arrow">→</span></a>
+      <a href="contact.html" class="btn btn-outline">Contact Me</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/theme.js"></script>
+</body>
+</html>
